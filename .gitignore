@@ -1,0 +1,9 @@
+Makefile
+.vagrant/
+*.a
+config.h
+config.status
+ftp-proxy/ftp-proxy
+ftp-proxy/ftp-proxy.*
+ftp-proxy/ftp-vers.c
+ftp-proxy/rc.script
