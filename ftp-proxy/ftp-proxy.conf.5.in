@@ -666,6 +666,20 @@ and scanned for the desired address.  Blank lines or lines starting
 with '#' are ignored.  Reading the address from a file may be useful
 for environments with masquerading and dynamic PPP connections.
 .TP
+.B PublicAddress
+Global context only.  Defines an IP address the server will use
+for outgoing
+.B PORT
+commands. Without this option, ftp-proxy will use the ListenAddress
+as the advertised IP when the proxy sends a PORT command. However,
+in a network where the public ip is actually mapped to a private ip,
+the proxy server will incorrectly advertise it's private IP. When
+present, the address advertised with PORT commands be overriden
+with the one provided.
+.sp
+The value for this option can be given as a DNS host name, or as a
+dotted decimal IP address.
+.TP
 .B User
 Global context only.  Defines the UNIX style user ID which is
 given to the process before it serves clients.  Default is to

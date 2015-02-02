@@ -1009,7 +1009,7 @@ static void cmds_pasv(CONTEXT *ctx, char *arg)
 static void cmds_xfer(CONTEXT *ctx, char *arg)
 {
 	int mode = MOD_ACT_FTP;
-	char *cmd;
+	char *cmd, *p;
 	u_int32_t addr;
 	u_int16_t port;
 
@@ -1080,6 +1080,10 @@ static void cmds_xfer(CONTEXT *ctx, char *arg)
 		/*
 		** Tell the server where we are listening
 		*/
+		p = config_str(NULL, "PublicAddress", NULL);
+		if (p != NULL) {
+			addr = socket_str2addr(p, addr);
+		}
 		socket_printf(ctx->srv_ctrl,
 				"PORT %d,%d,%d,%d,%d,%d\r\n",
 				(int) ((addr >> 24) & 0xff),

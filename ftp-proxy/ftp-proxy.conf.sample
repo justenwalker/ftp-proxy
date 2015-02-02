@@ -373,6 +373,14 @@
 # TranslatedAddress	0.0.0.0
 
 #
+# If the proxy server needs to send PORT commands for an IP
+# address other than the one it is listening on, such as on a
+# cloud provider which transparently maps public IPs, this option
+# can be used to override that address.
+#
+# PublicAddress 123.1.1.0
+
+#
 # If given, change UID to give up root privileges. In POSIX
 # environments this changes all user ID's.
 # If set, the proxy will use non-privileged ports (>1024) for
